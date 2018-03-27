@@ -1,0 +1,11 @@
+0327
+ajax 전송 후 success시 document.write를 하면 페이지를 다시 씀
+->innerHTML을 사용하여 태그 안의 내용을 바꾸는 것으로 변경.
+ajax 비동기식 통신을 하고 싶으면 button은 submit type을 쓰면 안됨.
+비동기식 통신을 하면 url은 변화하지 않음
+-> 현재 보고 있는 월을 url로 표시해 주기(추후 새로고침을 했을 때 그 월을 유지하기 위함)
+->history.replaceState를 사용해서 url 변경
+->ajax안 파라미터 중 url은 http://localhost:8080/~와 같이 전체 경로를 사용할 수 있음.
+@PathVariable을 사용해서 요청 url에 있는 값 추출
+테이블 태그 안에 tr태그안에 td안에 table을 넣어야 인식한다. 그래서 주를 그릴때 div로 나눠서 거기서 표를 그려야한다..
+jquery의 선택자를 이용하면 특정 속성을 가진 태그를 조작할 수 있다.
