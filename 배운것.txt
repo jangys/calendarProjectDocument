@@ -22,3 +22,15 @@ resources파일에 넣어야 찾아갈 수 있다.
 0329
 쿠키는 사용자가 브라우저의 쿠키데이터를 비우거나 금지하지 않는 한 남아있음.
 세션은 방문자가 접속해 세션이 발생되고 지정된 시간이 지나 세션 종료시 내용도 삭제.
+
+0401
+table-layout:fixed를 해야 칸 너비가 고정.
+min-width를 이용해서 화면이 작아져도 더 작아지지 않게
+flex-wrap:nowrap으로 하면 레이아웃 안바뀜
+클로저
+http://chanlee.github.io/2013/12/10/understand-javascript-closure/
+위 참고.
+클로저를 이용하면 다른 함수내의 데이터를 사용할 수 있다.
+
++추가 표 width에 따라 표 줄 삭제
+colNum으로 줄 조절
