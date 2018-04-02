@@ -47,3 +47,16 @@ ajax통신시 dataType과 type 조심
 
 시간이 있는 일정 중 오전 일정 값을 그대로 날짜 선택기 값으로 집어넣으면 그 전날 값이 나온다..
 9시 보다 늦은 시간이어야 달력에 맞는 날짜가 찍힌다.
+
++추가  api인증받은 메일이 캘린더에 대한 권한이 없으면 수정,삭제 등에 오류가 생긴다....
+simplecalendar-261@soy-storm-198708.iam.gserviceaccount.com
+calendar@soy-storm-198708.iam.gserviceaccount.com
+
+0403
+*** SCOPES을 CALENDAR로 바꿔야 수정 가능.
+->수정하고 crenditial 다 지우기.
+
+위의 이메일 주소 추가는 딱히 안해도 되는 듯?
+(서비스 계정)
+
+form 태그에 accept-charset="UTF-8"을 해줘야 한글이 깨지지 않고 잘 간다.
