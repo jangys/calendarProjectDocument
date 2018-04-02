@@ -34,3 +34,16 @@ http://chanlee.github.io/2013/12/10/understand-javascript-closure/
 
 +추가 표 width에 따라 표 줄 삭제
 colNum으로 줄 조절
+
+0402
+controller에서 googleCalendarService를 사용할땐 try catch로. throws말고.
+특정 값을 리턴해주고 싶으면 @ResponseBody를 쓰고 자료형 써야함
+z-index는 클수록 앞으로 온다.
+alert를 사용해서 한번 멈춰주는게 좋다?
+
+button을 submit으로 해줘야 화면의 이동이 나타난다.
+
+ajax통신시 dataType과 type 조심
+
+시간이 있는 일정 중 오전 일정 값을 그대로 날짜 선택기 값으로 집어넣으면 그 전날 값이 나온다..
+9시 보다 늦은 시간이어야 달력에 맞는 날짜가 찍힌다.
