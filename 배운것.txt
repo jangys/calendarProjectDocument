@@ -71,3 +71,6 @@ form 태그에 accept-charset="UTF-8"을 해줘야 한글이 깨지지 않고 잘 간다.
 종일과 그날 0시0분 간의 차이는 32400000 이다. 여기에 -1만 해도 종일은 위로 간다.
 
 밀리초 = 시간*3600000
+
+0404
+relative, absolute관계에서 absolute포지션의 위치에 구간을 줄 때는 relative의 width, height크기를 이용해야 한다.
