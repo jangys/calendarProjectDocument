@@ -74,3 +74,11 @@ form 태그에 accept-charset="UTF-8"을 해줘야 한글이 깨지지 않고 잘 간다.
 
 0404
 relative, absolute관계에서 absolute포지션의 위치에 구간을 줄 때는 relative의 width, height크기를 이용해야 한다.
+
+0405
+인증을 여러번 하게 된다.. service를 저장하지 않고 Google Calendar API로 요청할때 마다 불러옴.
+https://opentutorials.org/course/2473/16571
+이사이트를 통해 구글 API인증 방법인 Oauth에 관해 공부함.
+설명이 잘 나와있음
+
+ URL Decoder, Encoder를 사용하면 url 파라미터로 사용할 수 있게 변환 시켜줌
