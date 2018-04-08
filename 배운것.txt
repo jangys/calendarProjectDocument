@@ -82,3 +82,7 @@ https://opentutorials.org/course/2473/16571
 설명이 잘 나와있음
 
  URL Decoder, Encoder를 사용하면 url 파라미터로 사용할 수 있게 변환 시켜줌
+
+0408
+목록같이 스크롤이 아래로 낸려가는 경우에는 container, contents의 height를 auto로
+스크롤 움직이면 안되는건 100%
