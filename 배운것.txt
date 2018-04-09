@@ -86,3 +86,9 @@ https://opentutorials.org/course/2473/16571
 0408
 목록같이 스크롤이 아래로 낸려가는 경우에는 container, contents의 height를 auto로
 스크롤 움직이면 안되는건 100%
+
+0409
+recurrence를 각각 하나의 이벤트로 안보는 이유는 다른 프로그램?과의 통일성을 위함이다.
+Date객체를 받아 그대로 사용하면 여러 객체에서 해당 객체를 사용할 경우 Date객체의 값이 변경 될 수 있다.
+그래서 방어 복사를 해야한다.
+this.endTime = new Date(endTime.getTime()); 과 같이 되여야 함.
