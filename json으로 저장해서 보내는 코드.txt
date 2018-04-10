@@ -1,0 +1,45 @@
+function submitInput(){
+	var input = new Object();
+	input.summary = $("#summary").val().toString();
+	input.startDate = $("#startDatePicker").val().toString();
+	input.startDateTime = $("#startTimePicker").val().toString();
+	input.endDate = $("#endDatePicker").val().toString();
+	input.endDateTime = $("#endTimePicker").val().toString();
+	input.allDay = $("#allDayCheckBox").is(":checked").toString();
+	input.location = $("#location").val().toString();
+	input.description = $("#description").text().toString();
+	var size = $("[data-alarmNum]").attr("data-alarmNum");
+	
+	var overrides = new Array();
+	/*
+	for(var i=0;i<size;i++){
+		var override = new Object();
+		override.method = $("[name='overrides["+i+"].method']").val().toString();
+		override.minutes = ($("[name='overrides["+i+"].minutes']").val());
+		overrides.push(override);
+	}
+	input.overrides = overrides;
+	*/
+	input.calendars = $("#calendarList").val().toString();
+	input.eventId = $("#eventId").val().toString();
+	input.calendarId = $("#calendarId").val().toString();
+	var tt = new Object();
+	tt.summary = "dd";
+	var jsonT = JSON.parse(JSON.stringify(tt));
+	var test = JSON.stringify(input);
+	var obj = JSON.parse(test);
+	console.log(input);
+	var baseUrl = "http://localhost:8080";
+	$.ajax({
+		url: baseUrl+"/updateEvent",
+		type:'POST',
+		data: input,
+		dataType :"json",
+		success:function(data){
+			console.log(data);
+			location.href="http://localhost:8080/m/"+ $("#startDatePicker").val();
+		}
+	});
+	
+	
+}

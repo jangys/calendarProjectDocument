@@ -92,3 +92,55 @@ recurrence를 각각 하나의 이벤트로 안보는 이유는 다른 프로그램?과의 통일성을 위함
 Date객체를 받아 그대로 사용하면 여러 객체에서 해당 객체를 사용할 경우 Date객체의 값이 변경 될 수 있다.
 그래서 방어 복사를 해야한다.
 this.endTime = new Date(endTime.getTime()); 과 같이 되여야 함.
+
+0410
+여러 캘린더의 이벤트 리스트를 얻기위해 전에는 순차적으로 요청해서 시간이 느렸음.
+쓰레드를 사용하여 동시에 호출해서 리스트를 얻게함. 시간이 500ms~700ms으로 줄음. 원래는 1초 초반대
+http://seongtak-yoon.tistory.com/59
+-> Executor, callable을 이용해 어떻게 쓰레드의 결과값을 반환할지 알려줌
+http://hamait.tistory.com/612
+->fakejoinpool에 대해 자세히 설명해줌. fakejoinpool은 thread pool에서 놀고 있는 쓰레드를 골라 바쁜 쓰레드의 일을 떼어서 주는 것
+http://palpit.tistory.com/732
+->쓰레드 풀 설명
+http://happyourlife.tistory.com/135?category=577163
+->쓰레드 동기화 시 어느 메모리?에서 동기화가 이뤄지는지
+http://jdm.kr/blog/72
+->thread 와 runnable 차이. runnable이 implements를 사용해서 추후 클래스를 더 상속 받을 수 있다
+
+반복 일정인 경우 시작 날짜가 현재 보고 있는 월보다 전이어도 일정에는 들어온다. 단지 시작 날짜가 처음 매주 토요일을 시작한 날짜로 되어있어서 계속 이어져있을뿐
+EventDTO에 recurrence 정보 추가해야할듯
+
+//submit 엔터키 막기
+$("*").keypress(function(e){
+	if(e.keyCode == 13){
+		return false;
+	}
+});
+
+ajax로 전달할때 javascript에서 json 만들때 
+var input = new Object();
+	input.summary = $("#summary").val().toString();
+	input.startDate = $("#startDatePicker").val().toString();
+	input.startDateTime = $("#startTimePicker").val().toString();
+	input.endDate = $("#endDatePicker").val().toString();
+	input.endDateTime = $("#endTimePicker").val().toString();
+	input.allDay = $("#allDayCheckBox").is(":checked").toString();
+	input.location = $("#location").val().toString();
+	input.description = $("#description").text().toString();
+	var size = $("[data-alarmNum]").attr("data-alarmNum");
+	
+	var overrides = new Array();
+	/*
+	for(var i=0;i<size;i++){
+		var override = new Object();
+		override.method = $("[name='overrides["+i+"].method']").val().toString();
+		override.minutes = ($("[name='overrides["+i+"].minutes']").val());
+		overrides.push(override);
+	}
+	input.overrides = overrides;
+	*/
+	input.calendars = $("#calendarList").val().toString();
+	input.eventId = $("#eventId").val().toString();
+	input.calendarId = $("#calendarId").val().toString();
+d이렇게만 해서 input 을 전달해줘도 됨..
+
