@@ -144,3 +144,14 @@ var input = new Object();
 	input.calendarId = $("#calendarId").val().toString();
 d이렇게만 해서 input 을 전달해줘도 됨..
 
+0412
+history.replaceState(data,"SimpleCalendar",pageUrl);
+이렇게 하면 뒤로가기 했을때 남아 있지 않음..
+pushState 이용
+
+http://yamea-guide.tistory.com/51
+여기 참고해서 ajax사용시 뒤로, 앞으로 가기 구현
+data 있는지 보고 있으면 ajax 재요청
+
+http://babolsk.tistory.com/1067
+여기 참고해서 JSON 데이터 보내는거 구현

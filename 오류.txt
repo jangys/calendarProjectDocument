@@ -1,0 +1,2 @@
+ Servlet.service() for servlet [appServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Can not set java.lang.Integer field com.google.api.services.calendar.model.EventReminder.minutes to java.lang.String] with root cause
+java.lang.IllegalArgumentException: Can not set java.lang.Integer field com.google.api.services.calendar.model.EventReminder.minutes to java.lang.String
