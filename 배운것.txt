@@ -168,4 +168,13 @@ https://www.zerocho.com/category/JavaScript?page=4
 마스터에게만 반영되고 나머지에게는 반영 안됨.
 응답상태도 마찬가지. 마스터에게만 반영되고 나머지에게는 반영 안됨.
 
-++상세 페이지 X 다 링크로 바꾸기
+0416
+링크 눌리는거 비활성화 시키려면 css에서 pointer-events : none 으로 해주고 다시 활성화 시키려면 없애면 됨.
+파라미터에 있는거 그대로 쓰면 연결되서 리스트에 여러개 넣는다고 넣어도 다 같은 값 들어감.
+객체를 복사한 후 사용해야 함.
+
+https://www.kanzaki.com/docs/ical/recur.html
+여기서 RRULE
+
+http://ical4j.github.io/docs/ical4j/api/2.0.0/
+여기서 ical4j
