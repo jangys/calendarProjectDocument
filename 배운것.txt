@@ -178,3 +178,23 @@ https://www.kanzaki.com/docs/ical/recur.html
 
 http://ical4j.github.io/docs/ical4j/api/2.0.0/
 여기서 ical4j
+
+0417
+DTSTART와 DTEND는 구글에서 지원해주지 않음 이 정보는 start, end field에 정의되어 있음
+구글에서 반복 일정 중 삭제한 것은 EXDATE로 만들어주지 않고
+또 다른 하나의 이벤트로 들어감....
+이벤트 아이디는 초기 eventId_날짜 방식
+status=canceled............
+이후 모든 일정 삭제를 누르면 UNTIL로 값이 들어간다
+
+var h = $(window).height();
+	$(window).resize(function(){
+		if(h != $(window).height()){
+			calColNumAndPrintCalendar(year, month, data);
+			h = $(window).height();
+		}
+	});
+이런 형식으로 height 변경시에만 다시 그리게
+******long이니깐 86400000에 l을 붙여주자...
+
+반복 일정을 모아두었다가 나중에 제외 날짜 리스트랑 함께 그리기
