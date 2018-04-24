@@ -262,3 +262,34 @@ monthly로 해서 시작 시간 기준이니깐... 매월 시작 일정 일임.
 -> 모든 일정을 바꿀 때는 일정 반복 패턴의 기준이 첫번째 일정이니깐 반복 패턴을 첫번째 일정으로 보여주는건 맞음.
 ->향후 일정을 바꿀 때는 현재 일정 날짜가 기준이 되기 때문에 달라지지만 향후 일정 바꿀지는 저장할때 받기 때문에 미리 알수는 없음.
 css에 있는 클래스 순서가 아래로 갈수록 우선 순위를 가짐..
+
+0424
+drop할 수 있도록 해야 액박이 안뜸. -> ev.preventDefault();
+처음 드래그 시작할때 그 태그만 draggable = true로 지정.
+드래그할때 따라 오는 이미지는 내가 설정할 수 있음
+->var img = new Image();
+	img.src = '/image/transparent.png';
+	event.dataTransfer.setDragImage(img,10,10);
+
+아직 드래그 커서 해결 안됨.
+
+마우스를 누르고 그 위를 mousemove하면 바뀌게 해보려 했으니 마우스를 up하는 부분이 화면에서 벗어나면 인식하지 못하는 문제가 있음.
+
+addClass로 해야지 클래스가 추가됨. attr('class','클래스이름')이런식으로 하면 클래스이름밖에 들어가지 않음.
+
+location.pathname으로 하면 url에 #이 들어가면 그 뒤로는 안가져옴
+location.href로 해야 url을 full로 가져올 수 있음
+
+calendar 수정도 writer까지만 가능
+
+url뒤에 들어간 #뒤로는 새로고침할때 읽어오지를 않음...
+if(type == "ko.south_korea"){
+		result = "ko.south_korea#holiday@group.v.calendar.google.com";
+	}
+	if(type == "contacts"){
+		result = "#contacts@group.v.calendar.google.com";
+	}
+이 두개가 문제
+insert는 calendars로
+나머지는 calendarList 이용
+	-> 이게 더 설정할 수 있는게 많음
