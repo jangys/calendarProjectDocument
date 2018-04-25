@@ -240,9 +240,69 @@ var h = $(window).height();
 $(input).nextAll(":eq(2)").val()
 -> 3번 옆으로간 형제 노드
 
-요약창에 EXDATE 있으며녀 안나오는 거 수정
+요약창에 EXDATE 있으면 안나오는 거 수정
 
 현재 EXDATE를 넣어서 하루 일정 수정 가능하지만 일정을 새로 추가해야함.
 나중에 모든 일정 수정 해도 일정이 안사라짐.
 종일 일정이냐 아니냐에 따라 알람 보이는거 다르게 해놓음
 
+0423
+구글-> 모든 일정을 변경할 때 개별 일정도 변경되기는 하지만 개별 일정으로서 유지시킴
+ 네이버-> 모든 일정을 변경할 때 개별 일정은 일괄 삭제 됨
+향후 일정 변경은 새로운 아이디 값으로 만들어서 개별 일정도 다 삭제 됨
+
+구글-> 반복 일정에서 반복 패턴을 수정할 때 향후 일정으로 수정하면 첫번째 일정은 종료일을 가지게 되는데 그 일정의 반복 패턴을 수정하려하면 모든 일정 밖에 수정 못함
+종료일이 있는 패턴으로 수정하려 하거나 그 패턴에서 수정하려 하면 모든 일정 밖에 수정 못함
+네이버 -> 종료일 있어도 향후 일정 수정 가능
+
+향후 일정의 시작 일정도 recurringEventId가져서 exdate리스트에 들어가는 문제
+-> 아니네..?
+
+monthly로 해서 시작 시간 기준이니깐... 매월 시작 일정 일임.
+-> 모든 일정을 바꿀 때는 일정 반복 패턴의 기준이 첫번째 일정이니깐 반복 패턴을 첫번째 일정으로 보여주는건 맞음.
+->향후 일정을 바꿀 때는 현재 일정 날짜가 기준이 되기 때문에 달라지지만 향후 일정 바꿀지는 저장할때 받기 때문에 미리 알수는 없음.
+css에 있는 클래스 순서가 아래로 갈수록 우선 순위를 가짐..
+
+0424
+drop할 수 있도록 해야 액박이 안뜸. -> ev.preventDefault();
+처음 드래그 시작할때 그 태그만 draggable = true로 지정.
+드래그할때 따라 오는 이미지는 내가 설정할 수 있음
+->var img = new Image();
+	img.src = '/image/transparent.png';
+	event.dataTransfer.setDragImage(img,10,10);
+
+아직 드래그 커서 해결 안됨.
+
+마우스를 누르고 그 위를 mousemove하면 바뀌게 해보려 했으니 마우스를 up하는 부분이 화면에서 벗어나면 인식하지 못하는 문제가 있음.
+
+addClass로 해야지 클래스가 추가됨. attr('class','클래스이름')이런식으로 하면 클래스이름밖에 들어가지 않음.
+
+location.pathname으로 하면 url에 #이 들어가면 그 뒤로는 안가져옴
+location.href로 해야 url을 full로 가져올 수 있음
+
+calendar 수정도 writer까지만 가능
+
+url뒤에 들어간 #뒤로는 새로고침할때 읽어오지를 않음...
+if(type == "ko.south_korea"){
+		result = "ko.south_korea#holiday@group.v.calendar.google.com";
+	}
+	if(type == "contacts"){
+		result = "#contacts@group.v.calendar.google.com";
+	}
+이 두개가 문제
+insert는 calendars로
+나머지는 calendarList 이용
+	-> 이게 더 설정할 수 있는게 많음
+
+0425
+recurringEventId와 originalStartTime(변경된 일정의 시작 시간) 둘다 써야지 개별 일정으로써 추가가 된다!!! 대박!
+이렇게 하면 원래 이벤트에 EXDATE를 줄 필요 없음
+originalStartTime은 첫번째 일정이 종일이면 종일 값을 가지고 시간이 있는 일정이면 시간이 있는 일정 값을 가져야한다
+originalStartTime의 의미는 원래 이 일정이 있었어야하는 날짜시간을 의미하는 것
+
+내 ACL은 변경 못함
+Owner만 ACL 변경 가능
+default scope은 owner, writer이 될 수 없다
+ACL은 한번에 한개씩만 추가 가능하기 때문에 추가 누를때마다 검사 후 호출함. 삭제, 수정도 마찬가지
+reminder이나 attendee는 리스트로 수정하기 때문에 한번에 수정이 가능하지만 이건 list로 안받아서 불가능.
+ACL에 부 캘린더는 id@group.calendar.google.com의 형태로 나오는데 부 캘린더는 보여주지 않음.
