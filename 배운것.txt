@@ -306,3 +306,32 @@ default scope은 owner, writer이 될 수 없다
 ACL은 한번에 한개씩만 추가 가능하기 때문에 추가 누를때마다 검사 후 호출함. 삭제, 수정도 마찬가지
 reminder이나 attendee는 리스트로 수정하기 때문에 한번에 수정이 가능하지만 이건 list로 안받아서 불가능.
 ACL에 부 캘린더는 id@group.calendar.google.com의 형태로 나오는데 부 캘린더는 보여주지 않음.
+
+0426
+UNTIL -> inclusive
+전에는 getUntil로 받은거에 하루치(86400000)만큼 더했는데 이렇게 하니 until의 다음날 9시까지 살펴봐서(한국 기준시) 다음날 오전 9시 이전 날까지 표시 됨.
+하루치만큼 더하지 않고 until로 날짜를 받고 11시 59분까지 살펴보는 것으로 바꿈.
+LocalDateTime으로 바꿔서 썼는데 다음날 9시까지 보는걸로 해야 UNTIL이 제대로 나옴
+recur에 until 있으니깐 굳이 기간을 그에 맞춰서 안해도 됨.
+
+Date는 이제 안쓰니깐
+LocalDate나 localDateTime을 사용하자
+
+long to localDate
+LocalDate localdate = Instant.ofEpochMilli(now.getValue()).atZone(ZoneId.systemDefault()).toLocalDate();
+
+localDate to long
+date.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli()
+
+나중에 drawWeeklyCalendar true로 바꾸기
+
+1안 -> 월뷰를 받을때 정보를 태그에 저장해 놓아서 일, 주, 목록 뿌릴때 사용
+	-> 장점 : API에서 다시 데이터를 받아오지 않아도 되므로 빠르다
+	-> 단점 : 한달에 있는 일정이 많아지면 그만큼 태그의 양도 증가한다.
+2안 -> 일, 주, 월, 목록을 누를때마다 데이터를 받아온다
+	-> 장점 : 많은 정보를 페이지내에 저장하지 않아도 됨
+	-> 단점 : API에서 일정을 받아오는 속도가 느림. 한번당 500ms 이상
+
+API에서 데이터를 받아오는데 일정의 양, 기간에 상관없이 500ms 이상 걸림.
+->하루치만 받았을 때 700~800ms 정도 나옴
+->한달 받아도 그정도. 비슷.
