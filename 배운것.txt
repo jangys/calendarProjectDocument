@@ -24,7 +24,7 @@ resources파일에 넣어야 찾아갈 수 있다.
 세션은 방문자가 접속해 세션이 발생되고 지정된 시간이 지나 세션 종료시 내용도 삭제.
 
 0401
-table-layout:fixed를 해야 칸 너비가 고정.
+***table-layout:fixed를 해야 칸 너비가 고정.
 min-width를 이용해서 화면이 작아져도 더 작아지지 않게
 flex-wrap:nowrap으로 하면 레이아웃 안바뀜
 클로저
@@ -335,3 +335,11 @@ date.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli()
 API에서 데이터를 받아오는데 일정의 양, 기간에 상관없이 500ms 이상 걸림.
 ->하루치만 받았을 때 700~800ms 정도 나옴
 ->한달 받아도 그정도. 비슷.
+
+0427
+**표의 맨 첫줄이 안잡혀져 있으면(제대로 나눠져 있지 않는 상태 colspan으로 인해?) colspan이 안먹음
+맨 첫줄을 보이지 않게 해서 유지 시키고 그다음에 작성
+월 캘린더는 항상 첫줄이 colspan없이 되어있었기 때문에(날짜 때문에)
+이런 혼돈이 없었찌..
+
+**일뷰 캘린더 width 고정. height 스크롤 들어간거 해결
