@@ -378,4 +378,35 @@ currentIndex는 시작 시간 기준으로 몇번째인지
 **추후에 인덱스 또 설정 안하고 저장된 인덱스 가져다가 width설정하는 것으로 바꾸기. 그전에 백업해두고 시작
 
 dataBottom > top이 옆에 일정이 있는 경우라고 인식하는지 생각해보기
+->인덱스가 연속되었지만 top보다 databottom이 작으면 현재 일정보다 위에 일정이 있다는 것을 의미
 
+0502
+현재 시간 표시
+->weekly인 경우는 현재 날짜의 주와 같은 주인지를 확인하고 현재 요일로 index찾아가서 div 만들어 표시
+->daily인 경우 현재 날짜와 같으면 div만들어 표시
+60초 간격으로 함수를 호출해서 시간 표시
+->weekly인 경우 날이 넘어가면 그 날로 today div 옮기기
+	주가 넘어가면 today div 삭제, 함수 호출 안함.
+->daily인 경우 다음날이 되면 today div 삭제, 함수 호출 안함
+daily, weekly 함수가 달라서 사용자가 일<->주로 바꾸는 경우를 대비해 url을 보고 daily인 경우 d가 없으면 return
+weekly인 경우 w가 없으면 return
+
+종일에서 날짜 드래그 해서 추가하는 것 구현
+-> 월뷰에서 사용 했던 것 이용. 
+->url에 입력된 현재 클릭된 날짜 정보를 기반으로 현재 주를 구해서 사용자가 드래그한 날짜가 언제인지를 구함.
+	->월뷰 방식과 동일
+->daily or weekly에서 일정 추가를 요청한 것이면 일정 추가 페이지에서 종일 일정 상태로 보여줌.
+	->monthly, list는 현재 시간으로 선택되어 시간 일정을 추가하는 것이 처음 페이지를 로드하면 나와 있었음
+
+w,d일때 날짜 표시하는 부분 드래그하거나 눌러도 일정 추가 되도록 함.
+
+drag하는 방법 찾음..!!!!
+자바스크립트로 드래그할 영역을 onmousedown이벤트 등록하고
+mousedown 이벤트가 발생하면 onselectstart 막고 onmouseup, onmousedown이벤트 등록
+다 document의 이벤트. 
+onmouseup일때는 document에 등록한 이벤트들 없애기
+
+$("div").scrollTop()
+e.pageY - $("#container_weekly").offset().top +  $("#container_weekly").scrollTop();
+이런식으로 하면 엘리먼트 안 상대적 좌표값을 구할 수 있음
+e.offsetY나 e.layerY는 마우스를 아래로 내릴때는 잘 되지만 위로 올릴때는 좌표 값이 이상하게 잡음.
