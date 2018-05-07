@@ -501,3 +501,23 @@ contentType: "application/json; charset=UTF-8" 설정
 	-> reader, freeBusyReader,
 끝시간만 조절. 원래 끝시간에서 +- 10분 정도 같으면 수정하지 않음.
 시간 일정에만 div추가 일정 칸 맨 아래에 4px 차지. 커서 올리면 세로 사이즈 바꾸는 커서(s-resize)로 바뀜
+
+0507
+container_weekly는 scroll때문에 top만 이거 기준
+left는 contents_weekly기준. 옆에 side 제외해야하기 때문
+반복 일정은 항상 그 일정만 수정
+일정 수정시 reader, freeBusyReader는 수정 못하게
+
+일정 늘리고 줄일 때 width 100%, left = 0%
+
+**반복일정의 개별일정에 원래 있어야할 날짜에 대한 일정을 요청했을 때 개별 일정이 그 날짜가 아니어도 리스트에 있음
+
+daily에서 종일 일정 부분에서 일정 옮기면 종일 일정인 경우 이어지는 일정이면 해당 날짜가 시작 시간이 되도록 함
+->그냥 막는게 나은가?
+
+이동한 거리가 너무 작은 경우 x나 y가 전보다 9px아래로 이동한 경우는 clickEvent로 취급
+
+++초대 권한 선택, 막기
+
+-> 내가 참석자인데 반복일정에 ㅊ초대 된 경우 반복 패턴 바꿔도 바꿔지지 않음. Google Calendar API가 반영해주지 않음
+	-> 이걸 자체적으로도 막을지는 고밍
