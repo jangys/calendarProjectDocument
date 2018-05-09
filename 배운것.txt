@@ -561,3 +561,20 @@ daily에서 종일 일정 부분에서 일정 옮기면 종일 일정인 경우 이어지는 일정이면 해당
 
 **라디오 선택 된 값 = $("input:radio[name='visibility']:checked").val()
 
+0509
+테스트코드
+-> 파라미터의 개수와 배열의 열 개수와 동일해야함
+스위트는 알아서 기본적으로 만들어준다
+컨트롤러-> 요청하고 요청 핸들러에 전달하고 응답 객체를 반환한다
+
+제목이나 내용, 장소에 ', " 포함된 경우 자바스크립트에서 태그를 생성할 때 문제가 생김
+정규식 이용해서 ',"가 있는 경우 html에서 표시할 수 있는 특수문자로 변환
+	text = text.replace(/\'/g,"&#39;");	//'표시
+	text = text.replace(/\"/g,"&quot;");	//"표시
+JSON stringify할때도 해결
+
+calendarList 리소스를 이용해서는 summary, description, timezone 수정 불가. readonly
+	-> 이거 이용해서 defaultReminders세팅
+	->CalendarUI에 있는 사용자의 캘린더 리스트
+calendars리소스를 이용해야 수정 가능
+	-> 일정의 집합. 메타데이터 포함. summary, description, timezone
