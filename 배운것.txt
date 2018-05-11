@@ -578,3 +578,12 @@ calendarList 리소스를 이용해서는 summary, description, timezone 수정 불가. reado
 	->CalendarUI에 있는 사용자의 캘린더 리스트
 calendars리소스를 이용해야 수정 가능
 	-> 일정의 집합. 메타데이터 포함. summary, description, timezone
+
+0511
+singleEvents로 받아오면 반복일정의 경우 eventId뒤에 _날짜가 붙음. 그래서 eventId로 비교할 수 없음
+삭제된 이벤트를 events리소스의 get 메소드를 이용하면 status가 cancelled이 되지만 get에서는 가져올 수 있음
+list에서는 안가져옴
+	-> 계속 남아있음;;
+인풋DTO랑 아웃풋DTO가 다르니 테스트코드를 짤 때 두번 일 하게 된다...
+
+++ j2gpsm6fda3b5qmbt11mc3jl3s -> 내일도 이거 남아있는지 확인해보기
