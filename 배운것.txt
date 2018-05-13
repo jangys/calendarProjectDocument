@@ -587,3 +587,64 @@ list에서는 안가져옴
 인풋DTO랑 아웃풋DTO가 다르니 테스트코드를 짤 때 두번 일 하게 된다...
 
 ++ j2gpsm6fda3b5qmbt11mc3jl3s -> 내일도 이거 남아있는지 확인해보기
+
+0512
+vtimezone 사용하려면
+<dependency>
+	    <groupId>javax.cache</groupId>
+	    <artifactId>cache-api</artifactId>
+	    <version>1.1.0</version>
+</dependency>
+<dependency>
+	   <groupId>org.jsr107.ri</groupId>
+	   <artifactId>cache-ri-impl</artifactId>
+	   <version>1.0.0</version>
+</dependency>  
+필요
+
+CN-> getEmail
+last-modified->get Updated
+
+dtstamp랑 created, last-modified차이점
+This property is different than the "CREATED" and "LAST-MODIFIED" properties. These two properties are used to specify when the particular calendar data in the calendar store was created and last modified. This is different than when the iCalendar object representation of the calendar service information was created or last modified.
+created, last-modified 는 캘린더 저장소에서 생성 수정이고
+dtstamp는 icalendar obj가 캘린더 서비스 정보에 보이는거
+DTSTAMP should be set to when you create the actual ical file from the information in your database
+-> 내 데이터베이스에 ical file만들어질 때
+
+ attendee는 calendar의 method가 publish일때는 되지 않는다
+-> 근데 왜 구글은 돼?
+group scheduled이 아니면 안됨
+This property MUST NOT be specified in an iCalendar object when publishing the calendar information
+
+http://diaryofgreen.tistory.com/147
+->여기 참고해서 파일 다운로드 구현
+<!-- https://mvnrepository.com/artifact/org.mnode.ical4j/ical4j-extensions -->
+<dependency>
+    <groupId>org.mnode.ical4j</groupId>
+    <artifactId>ical4j-extensions</artifactId>
+    <version>1.0.3</version>
+</dependency>
+-> ical4j 예외 처리
+
+Google Calendar API에서 Recurrence에는 RRULE:이 포함되어 있으니깐 그거 제외하고 뒤 문자열로 rrule등록
+
+recurrence-id -> 반복 일정의 원래 날짜 값
+
+visibility -> Class : private인데 ical4j에서는 Clazz로 사용
+
+VAlarm-> popup -> action:DISPLAY
+-> email->ACTION:EMAIL
+email보낼 때 무조건 primary의 아이디로 보냄 어느 캘린더간에
+
+네이버에 import하면 알람은 분단위는 가져오는데 시간으로 넘어가면 import한 시간으로 표시됨(종일 일정인 경우)
+구글에 import하면 알람 표시 안됨
+초대 일정 참석자 표시 안됨-> 네이버, 구글 둘 다
+반복일정은 표시 잘 됨
+
+일정ㅇ 한개가 네이버에서는 잘 가져오는데 구글에서는 안가져와짐;;
+->반복 초대 매주 금요일
+dtstart, dtend, recurrence-id에 timezone 추가
+
+첨부 파일 표시 안됨 -> 둘다
+
