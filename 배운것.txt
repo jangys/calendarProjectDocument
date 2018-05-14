@@ -648,3 +648,23 @@ dtstart, dtend, recurrence-id에 timezone 추가
 
 첨부 파일 표시 안됨 -> 둘다
 
+0514
+exdate는 구글은 표시 안해줌..;;
+구글에서 export하면 exdate값은 존재
+exdate는 value로 date값만 가짐
+
+vEvent에 null값을 추가하지 말자!!!
+
+event.start == null인 건 삭제되었을 가능성이 높음
+
+캘린더id.ics 로 저장
+->캘린더 id에 .이 2개이상일 경우는 캘린더id의 일부만 추출해서 파일 이름으로 사용
+
+캘린더 상세보기 페이지에서 뒤로 가기 할때 캘린더 상세보기 페이지 남아 있는 것 수정
+exdate 계산 시 exdate한 개만 들어가는거 수정
+
+url에 날짜 부분 잘못 입력할 시 고쳐주는거 구현
+
+daily, weekly 일정 만들기 위해 드래그할 시 위로 올라가는 경우 끝 시간 고정
+
+일정 시간 드래그해서 추가 시 캘린더의 기본 알림 값이 보이도록 하기
